@@ -186,10 +186,20 @@ const employees = [
       }
     ]
     
-const admin = {
+const admin = [{
     "id": 1,
     "email": "admin@example.com",
     "password": "123"
-}
+}];
 
-  
+  export const setLocalStorage = () => {
+    localStorage.setItem('employees', JSON.stringify(employees));
+    localStorage.setItem('admin', JSON.stringify(admin));
+  }
+
+  export const getLocalStorage = () => {
+    const employees = localStorage.getItem("employees")
+    const admin = localStorage.getItem("admin")
+
+    return {employees,admin} // Remember To return data
+  }
